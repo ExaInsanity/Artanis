@@ -1,0 +1,30 @@
+{
+    "dataVersion": "0.0.1",
+    "token": "",
+    "artanis": {
+        "caching": {
+            "expiration": {
+                "default": {
+                    "absolute": "00:02:00",
+                    "sliding": "00:01:00"
+                },
+                "guild": {
+                    "absolute": "00:30:00",
+                    "sliding": "00:15:00",
+                    "member": {
+                        "absolute": "00:02:00",
+                        "sliding": "00:01:00"
+                    }
+                },
+                "channel": {
+                    "absolute": "00:15:00",
+                    "sliding": "00:07:30"
+                },
+                "user": {
+                    "absolute": "00:10:00",
+                    "sliding": "00:05:00"
+                }
+            }
+        }
+    }
+}
