@@ -32,8 +32,11 @@ public class Program
 
     private static void ConfigureServices(IHostBuilder builder)
     {
-        builder.ConfigureLogging(logger => logger.ClearProviders()
-                                                        .AddSerilog())
+        builder.ConfigureLogging(logging =>
+        {
+            logging.ClearProviders()
+                .AddSerilog();
+        })
             .ConfigureServices(services =>
             {
                 services.AddSingleton<ArtanisGlobalConfiguration>()
