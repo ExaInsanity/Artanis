@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using Remora.Discord.Gateway;
+
 using Serilog;
 
 public class Program
@@ -27,21 +29,16 @@ public class Program
 
         IHost host = hostBuilder.Build();
 
+        await host.Services.GetRequiredService<DiscordGatewayClient>().RunAsync(new());
+
         await host.RunAsync();
     }
 
     private static void ConfigureServices(IHostBuilder builder)
     {
-        builder.ConfigureLogging(logging =>
-        {
-            logging.ClearProviders()
-                .AddSerilog();
-        })
-            .ConfigureServices(services =>
+        builder.ConfigureServices(services =>
             {
-                services.AddSingleton<ArtanisGlobalConfiguration>()
-                    .AddSingleton<ArtanisShardConfigurationHandler>()
-                    .AddSingleton<ArtanisGuildConfigurationHandler>();
+                services.AddSingleton<ArtanisGlobalConfiguration>();
 
                 services.InitializeGateway(config);
                 services.RegisterCommands(config);
