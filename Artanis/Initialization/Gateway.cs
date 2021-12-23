@@ -18,7 +18,7 @@ internal static class Gateway
 {
     public static void InitializeGateway(this IServiceCollection services, ArtanisGlobalConfiguration configuration)
     {
-        services.AddDiscordCommands()
+        services.AddDiscordCommands(true)
             .AddDiscordGateway(xm => configuration.Token);
 
         services.Configure<DiscordGatewayClientOptions>(gw =>
