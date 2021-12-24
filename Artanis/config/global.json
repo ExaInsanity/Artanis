@@ -1,5 +1,4 @@
 {
-  "dataVersion": "0.0.1",
   "token": "",
   "artanis": {
     "caching": {
@@ -25,6 +24,9 @@
           "sliding": "00:05:00"
         }
       }
+    },
+    "roles": {
+      "muterole": 0
     }
   }
 }
